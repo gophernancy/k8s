@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+
+kind: Ingress
+
+metadata:
+
+  name: ingress-kube-state
+
+  namespace: kube-system
+
+spec:
+
+  rules:
+
+  - host: metrics.kube.state
+
+    http:
+
+      paths:
+
+      - path: /
+
+        backend:
+
+          serviceName: kube-state-metrics
+
+          servicePort: 8080
